@@ -34,9 +34,3 @@ mariadb[none]> FLUSH PRIVILEGES;
 4. Below are the content of the ProxySQL configuration.
 
 
-
-
-
-
-5. 
-6. 
