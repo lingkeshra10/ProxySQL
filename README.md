@@ -10,6 +10,23 @@ In this tutorial, the steps that going to be presented is on installing ProxySQL
 
 1. Before initialize installation on the ProxySQL installation, there few things needed to do, which is needed to add user which are admin and monitor in the databases inside the galera cluster.
 
-# Create user monitor for ProxySQL connect with the database
+###### Create monitor user for ProxySQL connect with the database
 
-CREATE OR REPLACE USER 'monitor'@'%' IDENTIFIED BY 'monitor';
+```
+mariadb[none]> CREATE OR REPLACE USER 'monitor'@'%' IDENTIFIED BY 'monitor';
+mariadb[none]> GRANT SELECT on sys.* to 'monitor'@'%';
+mariadb[none]> FLUSH PRIVILEGES;
+```
+
+###### Create admin user for application to connect
+
+```
+mariadb[none]> CREATE USER 'centagateadmin'@'%' IDENTIFIED BY 'foo123';
+mariadb[none]> GRANT ALL ON RECIPES.* TO 'centagateadmin'@'%';
+mariadb[none]> GRANT ALL PRIVILEGES ON *.* TO 'centagateadmin'@'%' WITH GRANT OPTION;
+mariadb[none]> FLUSH PRIVILEGES;
+```
+
+2. After adding user successfully inside the database and next we proceed to setup the proxysql.cnf
+
+3. Prepare 
