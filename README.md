@@ -127,3 +127,44 @@ mysql_users =
 )
 
 ```
+
+5. ProxySQL can be install as a docker container in two ways:
+
+- One is executing the docker run command as shown as below:
+
+a. Make sure the location of the ProxySQL.cnf file to be in an exact location to run the command: 
+
+docker run -p 16032:6032 -p 16033:6033 -p 16070:6070 -d -v /opt/proxysql/proxysql.cnf:/etc/proxysql.cnf proxysql/proxysql
+
+- Next is run in the part of docker-compose file:
+
+a. Another one is run in the part of docker-compose file:
+
+```
+version: '3'
+services:
+      
+      proxysql:
+              image: proxysql/proxysql
+              ports:
+                   - 6032:6032
+                   - 6033:6033
+              volumes:
+                   - /etc/localtime:/etc/localtime
+                   - /opt/proxysql/proxysql.cnf:/etc/proxysql.cnf
+              logging:
+                  driver: "json-file"
+                  options:
+                    max-file: "5"
+                    max-size: "10m"
+networks:
+  public:
+    external:
+      name: public
+```
+
+b. Deploy in a stack using the docker compose file :
+
+```
+$ docker stack deploy --compose-file docker-compose.yml proxysql
+```
