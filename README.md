@@ -29,4 +29,6 @@ mariadb[none]> FLUSH PRIVILEGES;
 
 2. After adding user successfully inside the database and next we proceed to setup the proxysql.cnf
 
-3. Prepare 
+3. Prepare the location to setup the proxysql.cnf to intialize the ProxySQL service in the docker.
+
+4. In this tutorial we will use the **/opt** to prepare the ProxySQL config file.
