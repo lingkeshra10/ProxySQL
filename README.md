@@ -35,7 +35,7 @@ mariadb[none]> FLUSH PRIVILEGES;
 
 ```
 
-// Config file contents referred to as "/path/to/proxysql.cnf"
+# Config file contents referred to as "/path/to/proxysql.cnf"
 datadir="/var/lib/proxysql"
 
 admin_variables=
@@ -71,7 +71,7 @@ mysql_variables=
         connect_retries_on_failure=10
 }
 
-//Assign hostgroups id and responsibility
+# Assign hostgroups id and responsibility
 mysql_galera_hostgroups =
 (
     {
@@ -86,7 +86,7 @@ mysql_galera_hostgroups =
     }
 )
 
-//Assign mysql servers that inside the galera cluster
+# Assign mysql servers that inside the galera cluster
 mysql_servers =
 (
     { address="database_IP_1" , port=3306 , hostgroup=10, max_connections=3000 },
@@ -94,7 +94,7 @@ mysql_servers =
     { address="database_IP_3" , port=3306 , hostgroup=10, max_connections=3000 }
 )
 
-//Define the query routing 
+# Define the query routing 
 mysql_query_rules =
 (
     {
@@ -120,7 +120,7 @@ mysql_query_rules =
     }
 )
 
-//Define the mysql users that will connect to the applications
+# Define the mysql users that will connect to the applications
 mysql_users =
 (
     { username = "centagateadmin", password = "foo123", default_hostgroup = 10, transaction_persistent = 0, active = 1 }
