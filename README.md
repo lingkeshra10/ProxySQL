@@ -21,9 +21,9 @@ mariadb[none]> FLUSH PRIVILEGES;
 ###### Create admin user for application to connect
 
 ```
-mariadb[none]> CREATE USER 'centagateadmin'@'%' IDENTIFIED BY 'foo123';
-mariadb[none]> GRANT ALL ON RECIPES.* TO 'centagateadmin'@'%';
-mariadb[none]> GRANT ALL PRIVILEGES ON *.* TO 'centagateadmin'@'%' WITH GRANT OPTION;
+mariadb[none]> CREATE USER 'admin'@'%' IDENTIFIED BY 'foo123';
+mariadb[none]> GRANT ALL ON RECIPES.* TO 'admin'@'%';
+mariadb[none]> GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
 mariadb[none]> FLUSH PRIVILEGES;
 ```
 
