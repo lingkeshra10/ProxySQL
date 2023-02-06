@@ -123,7 +123,7 @@ mysql_query_rules =
 # Define the mysql users that will connect to the applications
 mysql_users =
 (
-    { username = "centagateadmin", password = "foo123", default_hostgroup = 10, transaction_persistent = 0, active = 1 }
+    { username = "admin", password = "foo123", default_hostgroup = 10, transaction_persistent = 0, active = 1 }
 )
 
 ```
